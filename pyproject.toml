@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytemplate"
-version = "0.1.0"
+version = "1.0.1"
 description = "Escape Python Template Project"
 authors = ["Escape Technologies SAS <ping@escape.tech>"]
 maintainers = [
