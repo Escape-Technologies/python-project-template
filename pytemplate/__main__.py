@@ -1,3 +1,5 @@
+# pylint: skip-file
+
 """Entry point of the CLI version.
 
 Called from poetry.
