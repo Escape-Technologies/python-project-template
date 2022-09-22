@@ -39,7 +39,7 @@ pytest-cov = "^3.0.0"
 pytest-mock = "^3.8.2"
 setuptools = "^65"
 unify = "^0.5"
-vulture = "^2.5"
+vulture = "^2.6"
 yamllint = "^1.28.0"
 yapf = "^0.32.0"
 
