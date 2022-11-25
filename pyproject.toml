@@ -11,9 +11,6 @@ license = "MIT"
 packages = [
     { include = "pytemplate" }
 ]
-include = [
-    "LICENSE",
-]
 readme = "README.md"
 "homepage" = "https://escape.tech/"
 "repository" = "https://github.com/Escape-Technologies/python-project-template"
