@@ -23,7 +23,7 @@ pytemplate-cli = 'pytemplate:main'
 python = ">=3.7,<=3.11"
 
 [tool.poetry.dev-dependencies]
-autoflake = "^1.7"
+autoflake = "^2.0"
 docformatter = "^1.5"
 isort = "^5.10.1"
 mypy = "^1.0"
