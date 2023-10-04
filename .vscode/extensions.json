@@ -1,21 +1,23 @@
 {
     "recommendations": [
         "britesnow.vscode-toggle-quotes",
+        "matangover.mypy",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-python.black-formatter",
+        "kevinrose.vsc-python-indent",
+        "njqdev.vscode-python-typehint",
         "eamodio.gitlens",
         "davidanson.vscode-markdownlint",
         "redhat.vscode-yaml",
-        "ms-python.vscode-pylance",
         "bungcip.better-toml",
         "emeraldwalk.runonsave",
-        "matangover.mypy",
-        "njqdev.vscode-python-typehint",
         "dongli.python-preview",
         "frhtylcn.pythonsnippets",
-        "kevinrose.vsc-python-indent",
         "LittleFoxTeam.vscode-python-test-adapter",
         "ryanluker.vscode-coverage-gutters",
         "shd101wyy.markdown-preview-enhanced",
         "eriklynd.json-tools",
-        "ms-python.pylint"
+        "ms-python.pylint",
     ]
 }

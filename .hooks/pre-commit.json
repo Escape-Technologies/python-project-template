@@ -1,38 +1,19 @@
 {
-  "type": "python",
-  "venvActivate": "./.venv/bin/activate",
   "steps": [
     {
-      "name": "autoflake",
-      "command": "autoflake -ri --remove-unused-variable --ignore-init-module-imports --remove-all-unused-imports pytemplate tests"
+      "from": "py-black"
     },
     {
-      "name": "isort",
-      "command": "isort -m 9 --line-length 160 pytemplate tests"
+      "from": "py-mypy"
     },
     {
-      "name": "unify",
-      "command": "unify -ri pytemplate tests"
+      "from": "py-pytest"
     },
     {
-      "name": "docformatter",
-      "command": "docformatter --wrap-summaries 160 --wrap-descriptions 160 -ri pytemplate tests"
+      "from": "py-ruff"
     },
     {
-      "name": "yapf",
-      "command": "yapf -ri pytemplate tests"
-    },
-    {
-      "name": "pylint",
-      "command": "pylint --load-plugins pylint_quotes pytemplate tests"
-    },
-    {
-      "name": "mypy",
-      "command": "mypy pytemplate tests"
-    },
-    {
-      "name": "pytest",
-      "command": "pytest tests"
+      "from": "py-yamllint"
     }
   ]
 }
