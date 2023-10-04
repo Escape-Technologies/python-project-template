@@ -3,4 +3,4 @@
 Called when you import pytemplate.
 """
 
-from pytemplate.main import main  # noqa
+from pytemplate.main import main

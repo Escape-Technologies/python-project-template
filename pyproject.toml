@@ -156,9 +156,8 @@ docstring-quotes = "double"
 inline-quotes = "single"
 
 [tool.ruff.pylint]
-max-branches = 15       # Maximum number of branch for function / method body
-max-args = 10           # Maximum number of arguments for function / method 
-max-public-methods = 30 # Maximum number of public methods per class
+max-branches = 15 # Maximum number of branch for function / method body
+max-args = 10     # Maximum number of arguments for function / method 
 
 [tool.ruff.pycodestyle]
 max-doc-length = 160
