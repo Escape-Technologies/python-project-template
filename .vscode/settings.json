@@ -1,42 +1,45 @@
 {
   "python.languageServer": "Pylance",
-  "python.linting.pylintEnabled": false,
-  "python.linting.enabled": false,
-  "python.linting.pylintPath": "./.venv/bin/pylint",
-  "python.formatting.provider": "yapf",
   "editor.formatOnSave": true,
-  "python.defaultInterpreterPath": "./.venv/bin/python",
   "mypy.runUsingActiveInterpreter": true,
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": "\\.py$",
-        "cmd": "cd ${workspaceFolder} && poetry run isort -m 9 --line-length 160 pytemplate tests scripts"
-      },
-      {
-        "match": "\\.py$",
-        "cmd": "cd ${workspaceFolder} && poetry run autoflake --in-place --remove-unused-variables --remove-all-unused-imports pytemplate/**/*.py"
-      },
-      {
-        "match": "\\.py$",
-        "cmd": "cd ${workspaceFolder} && poetry run docformatter --wrap-summaries 160 --wrap-descriptions 160 -ri pytemplate tests scripts"
-      },
-      {
-        "match": "\\.py$",
-        "cmd": "cd ${workspaceFolder} && poetry run unify -ri pytemplate tests scripts"
-      }
+  "python.analysis.autoImportCompletions": true,
+  "python.defaultInterpreterPath": "./.venv/bin/python",
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "editor.rulers": [
+      80,
+      120
     ]
   },
+  "ruff.lint.args": [
+    "--config=pyproject.toml"
+  ],
+  "black-formatter.args": [
+    "--skip-string-normalization",
+    "--line-length",
+    "160"
+  ],
+  "python.analysis.typeCheckingMode": "basic",
+  "python.analysis.ignore": [
+    "*"
+  ],
+  "python.testing.unittestEnabled": false,
+  "python.linting.ignorePatterns": [
+    "**/site-packages/**/*.py",
+    ".vscode/*.py",
+    ".venv/**",
+    "*/.venv/**"
+  ],
   "python.testing.pytestArgs": [
     "--cov=pytemplate tests scripts"
   ],
   "python.testing.pytestEnabled": true,
   "python.testing.pytestPath": "../scripts/pytest-with-cov",
-  "python.linting.ignorePatterns": [
-    "**/site-packages/**/*.py",
-    ".vscode/*.py",
-    ".venv/**"
-  ],
   "files.exclude": {
     "**/__pycache__": true,
   }
