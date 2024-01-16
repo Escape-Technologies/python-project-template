@@ -20,7 +20,7 @@ pytemplate-cli = 'pytemplate:main'
 python = ">=3.9,<=3.12"
 
 [tool.poetry.group.dev.dependencies]
-black = { version = "^23.9.1", extras = ["jupyter"] }
+black = { version = "^23.12.1", extras = ["jupyter"] }
 betterproto = { version = "2.0.0b6", extras = ["compiler"] }
 flake8 = "6.0.0"
 mypy = "1.4.1"
@@ -37,9 +37,9 @@ types-PyYAML = "6.0.12.10"
 types-protobuf = "4.23.0.1"
 types-requests = "2.31.0.1"
 types-toml = "0.10.8.6"
-types-jsonschema = "^4.19.0.3"
+types-jsonschema = "^4.20.0.20240105"
 yamllint = "1.32.0"
-ipykernel = "^6.25.2"
+ipykernel = "^6.28.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
