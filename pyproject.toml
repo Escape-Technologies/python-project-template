@@ -17,7 +17,7 @@ readme = "README.md"
 pytemplate-cli = 'pytemplate:main'
 
 [tool.poetry.dependencies]
-python = ">=3.9,<=3.12"
+python = ">=3.9,<=3.13"
 
 [tool.poetry.group.dev.dependencies]
 black = { version = "^23.12.1", extras = ["jupyter"] }
