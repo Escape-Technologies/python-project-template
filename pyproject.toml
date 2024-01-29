@@ -25,7 +25,7 @@ black = { version = "^23.12.1", extras = ["jupyter"] }
 betterproto = { version = "2.0.0b6", extras = ["compiler"] }
 flake8 = "6.0.0"
 mypy = "1.4.1"
-pydot = "1.4.2"
+pydot = "2.0.0"
 ruff = "0.1.14"
 toml = "0.10.2"
 pytest = "7.4.0"
