@@ -1,10 +1,10 @@
 # pytemplate ![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/Escape-Technologies/python-project-template) [![CI](https://github.com/Escape-Technologies/python-project-template/actions/workflows/ci.yaml/badge.svg)](https://github.com/Escape-Technologies/python-project-template/actions/workflows/ci.yaml) [![CD](https://github.com/Escape-Technologies/python-project-template/actions/workflows/cd.yaml/badge.svg)](https://github.com/Escape-Technologies/python-project-template/actions/workflows/cd.yaml)
 
-Run the `./install-dev.sh`
+Run `make`
 
 Source your `.venv`: `source .venv/bin/activate`
 
-Rename all `app` (including folder names) by the name of your project.
+If you wish, rename all `app` (including folder names) by the name of your project.
 
 Make sure you can run the `app-cli` command that should display "Hello World!"
 
