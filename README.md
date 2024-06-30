@@ -2,7 +2,7 @@
 
 Run `make`
 
-Source your `.venv`: `source .venv/bin/activate`
+Source your `.venv`: `poetry shell`
 
 If you wish, rename all `app` (including folder names) by the name of your project.
 
