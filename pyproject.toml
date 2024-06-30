@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pytemplate"
+name = "app"
 version = "1.0.0"
 description = "Escape Python Template Project"
 authors = ["Escape Technologies SAS <ping@escape.tech>"]
@@ -8,13 +8,13 @@ maintainers = [
     "Antoine Carossio <antoine@escape.tech>",
 ]
 license = "MIT"
-packages = [{ include = "pytemplate" }]
+packages = [{ include = "app" }]
 readme = "README.md"
 "homepage" = "https://escape.tech/"
 "repository" = "https://github.com/Escape-Technologies/python-project-template"
 
 [tool.poetry.scripts]
-pytemplate-cli = 'pytemplate:main'
+app-cli = 'app:main'
 
 [tool.poetry.dependencies]
 python = ">=3.9,<=3.13"
@@ -127,7 +127,6 @@ exclude = [".venv", "poetry.lock", "__pycache__", "pyproject.toml"]
 ignore = ["E999", "UP015", "S311"]
 line-length = 160
 target-version = "py311"
-format = "grouped"
 ignore-init-module-imports = true
 task-tags = ["TODO"]
 
@@ -181,9 +180,8 @@ warn_redundant_casts = true
 warn_unused_ignores = true
 warn_unused_configs = true
 namespace_packages = true
-disable_recursive_aliases = true
 pretty = true
-files = "pytemplate, tests"
+files = "app, tests"
 exclude = [
     ".venv",
     "setup.py",

@@ -3,4 +3,4 @@
 Called when you import pytemplate.
 """
 
-from pytemplate.main import main
+from app.main import main
