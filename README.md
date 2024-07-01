@@ -29,3 +29,10 @@ In order to use the workflows, you need to have the following environment variab
 `DOCKERHUB_TOKEN`: A token used to log on DockerHub.
 
 `DOCKERHUB_REPO`: The repository where your image will be published.
+
+### Bump all dependencies
+
+```python
+poetry self add poetry-plugin-sembump
+poetry bump -D
+```
