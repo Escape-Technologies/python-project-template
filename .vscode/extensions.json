@@ -2,10 +2,8 @@
     "recommendations": [
         "britesnow.vscode-toggle-quotes",
         "matangover.mypy",
-        "ms-python.vscode-pylance",
         "charliermarsh.ruff",
         "ms-python.black-formatter",
-        "kevinrose.vsc-python-indent",
         "njqdev.vscode-python-typehint",
         "eamodio.gitlens",
         "davidanson.vscode-markdownlint",
