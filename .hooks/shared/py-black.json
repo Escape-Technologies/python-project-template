@@ -1,5 +1,0 @@
-{
-  "name": "python: black",
-  "command": "poetry run black app tests",
-  "onlyOn": "**/*.py"
-}

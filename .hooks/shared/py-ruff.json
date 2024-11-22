@@ -1,5 +1,0 @@
-{
-  "name": "python: ruff",
-  "command": "poetry run ruff check app tests",
-  "onlyOn": "**/*.py"
-}

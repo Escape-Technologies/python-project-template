@@ -1,0 +1,6 @@
+{
+  "steps": [{
+      "name": "Lint commit message",
+      "command": "npx commitlint lint $1"
+  }]
+}

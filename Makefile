@@ -15,6 +15,8 @@ dependencies: poetry_install
 	poetry install
 
 git_hooks_init:
-	@echo "---- Git hooks init (using mookme) ----"
-	npm install
-	npx mookme init --only-hook --skip-types-selection
+	@echo "---- Git hooks init (using Gookme) ----"
+	curl -sSL https://raw.githubusercontent.com/LMaxence/gookme/main/scripts/install.sh | bash
+	gookme init --all
+	npm install -g commitlint
+

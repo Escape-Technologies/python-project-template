@@ -1,5 +1,0 @@
-{
-  "name": "python: yamllint",
-  "command": "poetry run yamllint . -s",
-  "onlyOn": "**/*.yaml"
-}

@@ -1,0 +1,19 @@
+{
+  "steps": [
+    {
+      "from": "py-black"
+    },
+    {
+      "from": "py-mypy"
+    },
+    {
+      "from": "py-pytest"
+    },
+    {
+      "from": "py-ruff"
+    },
+    {
+      "from": "py-yamllint"
+    }
+  ]
+}
