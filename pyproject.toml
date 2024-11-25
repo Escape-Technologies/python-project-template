@@ -24,7 +24,7 @@ pydantic = "^2.5.3"
 black = { version = "^23.12.1", extras = ["jupyter"] }
 betterproto = { version = "2.0.0b6", extras = ["compiler"] }
 flake8 = "7.1.1"
-mypy = "1.4.1"
+mypy = "1.13.0"
 pydot = "3.0.2"
 ruff = "0.8.0"
 toml = "0.10.2"
