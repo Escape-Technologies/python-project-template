@@ -1,0 +1,5 @@
+{
+  "name": "python: mdformat",
+  "command": "poetry run mdformat .",
+  "onlyOn": "**/*.md"
+}

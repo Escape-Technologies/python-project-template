@@ -32,6 +32,12 @@ jobs:
       - name: Run lint
         if: always()
         run: |
+          poetry run black -V
+          poetry run black $MODULE_NAME tests
+          poetry run yamllint -V
+          poetry run yamllint .
+          poetry run mdformat -V
+          poetry run mdformat .
           poetry run ruff -V
           poetry run ruff $MODULE_NAME tests
           poetry run mypy -V
