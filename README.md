@@ -8,8 +8,7 @@ If you wish, rename all `app` (including folder names) by the name of your proje
 
 Make sure you can run the `app-cli` command that should display "Hello World!"
 
-
----
+______________________________________________________________________
 
 ## Environment
 
