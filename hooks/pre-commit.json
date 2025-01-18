@@ -14,6 +14,9 @@
     },
     {
       "from": "py-yamllint"
+    },
+    {
+      "from": "py-mdformat"
     }
   ]
 }

@@ -39,7 +39,7 @@ jobs:
           poetry run black --version
           poetry run black $MODULE_NAME tests
           poetry run ruff --version
-          poetry run ruff $MODULE_NAME tests
+          poetry run ruff check $MODULE_NAME tests
           poetry run mypy --version
           poetry run mypy $MODULE_NAME tests
       - name: Run tests
