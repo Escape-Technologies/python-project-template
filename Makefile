@@ -13,6 +13,7 @@ poetry_install:
 dependencies: poetry_install
 	@echo "---- Installing Python dependencies ----"
 	poetry install
+	poetry self add poetry-plugin-sembump
 
 git_hooks_init:
 	@echo "---- Git hooks init (using Gookme) ----"
