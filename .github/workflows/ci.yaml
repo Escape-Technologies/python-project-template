@@ -33,7 +33,7 @@ jobs:
         if: always()
         run: |
           poetry run ruff -V
-          poetry run ruff app tests
+          poetry run ruff $MODULE_NAME tests
           poetry run mypy -V
           poetry run mypy $MODULE_NAME tests
       - name: Run tests
