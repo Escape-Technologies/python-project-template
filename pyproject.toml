@@ -18,7 +18,7 @@ app-cli = 'app:main'
 
 [tool.poetry.dependencies]
 python = ">=3.10,<=3.14"
-pydantic = "^2.10.5"
+pydantic = "^2.11.3"
 
 [tool.poetry.group.dev.dependencies]
 black = { version = "^23.12.1", extras = ["jupyter"] }
