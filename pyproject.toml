@@ -1,172 +1,33 @@
+[build-system]
+requires = [ "poetry-core>=1.0.0",]
+build-backend = "poetry.core.masonry.api"
+
 [tool.poetry]
 name = "app"
 version = "1.0.0"
 description = "Escape Python Template Project"
-authors = ["Escape Technologies SAS <ping@escape.tech>"]
-maintainers = [
-    "Swan <swan@escape.tech>",
-    "Antoine Carossio <antoine@escape.tech>",
-]
+authors = [ "Escape Technologies SAS <ping@escape.tech>",]
+maintainers = [ "Swan <swan@escape.tech>", "Antoine Carossio <antoine@escape.tech>",]
 license = "MIT"
-packages = [{ include = "app" }]
 readme = "README.md"
-"homepage" = "https://escape.tech/"
-"repository" = "https://github.com/Escape-Technologies/python-project-template"
-
-[tool.poetry.scripts]
-app-cli = 'app:main'
-
-[tool.poetry.dependencies]
-python = ">=3.10,<=3.14"
-pydantic = "^2.10.5"
-
-[tool.poetry.group.dev.dependencies]
-black = { version = "^23.12.1", extras = ["jupyter"] }
-betterproto = { version = "2.0.0b6", extras = ["compiler"] }
-flake8 = "7.1.1"
-mypy = "1.4.1"
-pydot = "3.0.4"
-ruff = "0.9.2"
-toml = "0.10.2"
-pytest = "8.3.4"
-pytest-cov = "6.0.0"
-pytest-mock = "3.14.0"
-pytest-xdist = "3.6.1"
-pytest-asyncio = "0.25.2"
-pytest-timeout = "2.3.1"
-types-PyYAML = "6.0.12.20241230"
-types-protobuf = "5.29.1.20241207"
-types-requests = "2.32.0.20241016"
-types-toml = "0.10.8.6"
-types-jsonschema = "^4.20.0.20240105"
-yamllint = "1.35.1"
-ipykernel = "^6.28.0"
-mdformat = "^0.7.21"
-gitlint = "^0.19.1"
-
-[build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
-
-[tool.coverage.run]
-parallel = true
-omit = ["_test.py"]
-
-[tool.pytest.ini_options]
-addopts = []
-filterwarnings = [
-    "ignore:Module already imported.*:pytest.PytestAssertRewriteWarning",
-    "ignore::DeprecationWarning",
-]
+homepage = "https://escape.tech/"
+repository = "https://github.com/Escape-Technologies/python-project-template"
+[[tool.poetry.packages]]
+include = "app"
 
 [tool.black]
 line-length = 120
 skip-string-normalization = true
 
 [tool.ruff]
-unfixable = ["F841"]
-select = [
-    ## Here are all available rules
-    # https://beta.ruff.rs/docs/rules/
-    # Please, comment or uncomment lines but do not remove them
-
-    "F",   # Pyflakes                          https://beta.ruff.rs/docs/rules/#pyflakes-f
-    "E",   # pycodestyle - Error               https://beta.ruff.rs/docs/rules/#error-e
-    "W",   # pycodestyle - Warning             https://beta.ruff.rs/docs/rules/#warning-w
-    "C90", # mccabe                            https://beta.ruff.rs/docs/rules/#mccabe-c90
-    "I",   # isort                             https://beta.ruff.rs/docs/rules/#isort-i
-    # "N",          # pep8-naming                   x   https://beta.ruff.rs/docs/rules/#pep8-naming-n
-    # "D",          # pydocstyle                    x   https://beta.ruff.rs/docs/rules/#pydocstyle-d
-    # "UP",         # pyupgrade                     x   https://beta.ruff.rs/docs/rules/#pyupgrade-up
-    "YTT", # flake8-2020                       https://beta.ruff.rs/docs/rules/#flake8-2020-ytt
-    # "ANN",        # flake8-annotations                https://beta.ruff.rs/docs/rules/#flake8-annotations-ann
-    "S", # flake8-bandit                     https://beta.ruff.rs/docs/rules/#flake8-bandit-s
-    # "BLE",        # flake8-blind-except               https://beta.ruff.rs/docs/rules/#flake8-blind-except-ble
-    # "FBT",        # flake8-boolean-trap               https://beta.ruff.rs/docs/rules/#flake8-boolean-trap-fbt
-    "B", # flake8-bugbear                    https://beta.ruff.rs/docs/rules/#flake8-bugbear-b
-    # "A",          # flake8-builtins              x    https://beta.ruff.rs/docs/rules/#flake8-builtins-a
-    "COM", # flake8-commas                     https://beta.ruff.rs/docs/rules/#flake8-commas-com
-    "C4",  # flake8-comprehensions             https://beta.ruff.rs/docs/rules/#flake8-comprehensions-c4
-    # "DTZ",        # flake8-datetimez                  https://beta.ruff.rs/docs/rules/#flake8-datetimez-dtz
-    # "T10",        # flake8-debugger                   https://beta.ruff.rs/docs/rules/#flake8-debugger-t10
-    # "DJ",         # flake8-django                     https://beta.ruff.rs/docs/rules/#flake8-django-dj
-    # "EM",         # flake8-errmsg                     https://beta.ruff.rs/docs/rules/#flake8-errmsg-em
-    # "EXE",        # flake8-executable                 https://beta.ruff.rs/docs/rules/#flake8-executable-exe
-    "ISC", # flake8-implicit-str-concat        https://beta.ruff.rs/docs/rules/#flake8-implicit-str-concat-isc
-    "ICN", # flake8-import-conventions         https://beta.ruff.rs/docs/rules/#flake8-import-conventions-icn
-    # "G",          # flake8-logging-format             https://beta.ruff.rs/docs/rules/#flake8-logging-format-g
-    "INP", # flake8-no-pep420                  https://beta.ruff.rs/docs/rules/#flake8-no-pep420-inp
-    "PIE", # flake8-pie                        https://beta.ruff.rs/docs/rules/#flake8-pie-pie
-    "T20", # flake8-print                      https://beta.ruff.rs/docs/rules/#flake8-print-t20
-    "PYI", # flake8-pyi                        https://beta.ruff.rs/docs/rules/#flake8-pyi-pyi
-    "PT",  # flake8-pytest-style               https://beta.ruff.rs/docs/rules/#flake8-pytest-style-pt
-    "Q",   # flake8-quotes                     https://beta.ruff.rs/docs/rules/#flake8-quotes-q
-    "RSE", # flake8-raise                      https://beta.ruff.rs/docs/rules/#flake8-raise-rse
-    "RET", # flake8-return                     https://beta.ruff.rs/docs/rules/#flake8-return-ret
-    # "SLF",        # flake8-self                       https://beta.ruff.rs/docs/rules/#flake8-self-slf
-    # "SIM",        # flake8-simplify              x    https://beta.ruff.rs/docs/rules/#flake8-simplify-sim
-    "TID", # flake8-tidy-imports               https://beta.ruff.rs/docs/rules/#flake8-tidy-imports-tid
-    # "TCH",        # flake8-type-checking              https://beta.ruff.rs/docs/rules/#flake8-type-checking-tch
-    "ARG", # flake8-unused-arguments           https://beta.ruff.rs/docs/rules/#flake8-unused-arguments-arg
-    # "PTH",        # flake8-use-pathlib           x    https://beta.ruff.rs/docs/rules/#flake8-use-pathlib-pth
-    # "ERA",        # eradicate                         https://beta.ruff.rs/docs/rules/#eradicate-era
-    # "PD",         # pandas-vet                        https://beta.ruff.rs/docs/rules/#pandas-vet-pd
-    "PGH", # pygrep-hooks                      https://beta.ruff.rs/docs/rules/#pygrep-hooks-pgh
-    "PL",  # Pylint                       x    https://beta.ruff.rs/docs/rules/#pylint-pl
-    "PLC", # Pylint - Convention               https://beta.ruff.rs/docs/rules/#convention-plc
-    "PLE", # Pylint - Error                    https://beta.ruff.rs/docs/rules/#error-ple
-    "PLR", # Pylint - Refactor                 https://beta.ruff.rs/docs/rules/#refactor-plr
-    "PLW", # Pylint - Warning                  https://beta.ruff.rs/docs/rules/#warning-plw
-    # "TRY",        # tryceratops                  x    https://beta.ruff.rs/docs/rules/#tryceratops-try                      
-    "NPY",   # NumPy-specific rules              https://beta.ruff.rs/docs/rules/#numpy-specific-rules-npy
-    "RUF",   # Ruff-specific rules               https://beta.ruff.rs/docs/rules/#ruff-specific-rules-ruf
-    "TD002", # flake8-missing-todo-author               https://beta.ruff.rs/docs/rules/#flake8-todos-td
-    "TD004", # flake8-missing-todo-colon                https://beta.ruff.rs/docs/rules/#flake8-todos-td
-    "TD005", # flake8-missing-todo-description              https://beta.ruff.rs/docs/rules/#flake8-todos-td
-    "TD007", # flake8-missing-space-after-todo-colon        https://beta.ruff.rs/docs/rules/#flake8-todos-td
-]
-exclude = [".venv", "poetry.lock", "__pycache__", "pyproject.toml"]
-ignore = ["E999", "UP015", "S311"]
+unfixable = [ "F841",]
+select = [ "F", "E", "W", "C90", "I", "YTT", "S", "B", "COM", "C4", "ISC", "ICN", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET", "TID", "ARG", "PGH", "PL", "PLC", "PLE", "PLR", "PLW", "NPY", "RUF", "TD002", "TD004", "TD005", "TD007",]
+exclude = [ ".venv", "poetry.lock", "__pycache__", "pyproject.toml",]
+ignore = [ "E999", "UP015", "S311",]
 line-length = 160
 target-version = "py311"
 ignore-init-module-imports = true
-task-tags = ["TODO"]
-
-[tool.ruff.per-file-ignores]
-"__init__.py" = [
-    "F401", # Module imported but unused 
-    "F403", # 'from module import *' used; unable to detect undefined names
-]
-"*_test.py" = [
-    "S101", # Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
-]
-"*/test/*" = [
-    "INP001", # is part of an implicit namespace package, missing __init__.py
-]
-"*/scripts/*" = [
-    "INP001", # is part of an implicit namespace package, missing __init__.py
-]
-"*test_*.py" = [
-    "S101", # Use of assert detected. The enclosed code will be removed when compiling to optimised byte code.
-]
-
-[tool.ruff.pydocstyle]
-convention = "google"
-
-[tool.ruff.flake8-quotes]
-docstring-quotes = "double"
-inline-quotes = "single"
-
-[tool.ruff.pylint]
-max-branches = 15 # Maximum number of branch for function / method body
-max-args = 10     # Maximum number of arguments for function / method 
-
-[tool.ruff.pycodestyle]
-max-doc-length = 160
-ignore-overlong-task-comments = true
-
-[tool.ruff.mccabe]
-max-complexity = 15
+task-tags = [ "TODO",]
 
 [tool.mypy]
 python_version = "3.12"
@@ -184,18 +45,7 @@ warn_unused_configs = true
 namespace_packages = true
 pretty = true
 files = "app, tests"
-exclude = [
-    ".venv",
-    "setup.py",
-    ".git",
-    ".tox",
-    "dist",
-    "build",
-    "docs",
-    "node_modules",
-    "__pycache__",
-]
-
+exclude = [ ".venv", "setup.py", ".git", ".tox", "dist", "build", "docs", "node_modules", "__pycache__",]
 [[tool.mypy.overrides]]
 module = "opentelemetry.*"
 ignore_missing_imports = true
@@ -223,3 +73,73 @@ ignore_missing_imports = true
 [[tool.mypy.overrides]]
 module = "pydash.*"
 ignore_missing_imports = true
+
+[tool.poetry.scripts]
+app-cli = "app:main"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.14"
+pydantic = "*"
+
+[tool.coverage.run]
+parallel = true
+omit = [ "_test.py",]
+
+[tool.pytest.ini_options]
+addopts = []
+filterwarnings = [ "ignore:Module already imported.*:pytest.PytestAssertRewriteWarning", "ignore::DeprecationWarning",]
+
+[tool.ruff.per-file-ignores]
+"__init__.py" = [ "F401", "F403",]
+"*_test.py" = [ "S101",]
+"*/test/*" = [ "INP001",]
+"*/scripts/*" = [ "INP001",]
+"*test_*.py" = [ "S101",]
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "single"
+
+[tool.ruff.pylint]
+max-branches = 15
+max-args = 10
+
+[tool.ruff.pycodestyle]
+max-doc-length = 160
+ignore-overlong-task-comments = true
+
+[tool.ruff.mccabe]
+max-complexity = 15
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "*"
+mypy = "*"
+pydot = "*"
+ruff = "*"
+toml = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-mock = "*"
+pytest-xdist = "*"
+pytest-asyncio = "*"
+pytest-timeout = "*"
+types-PyYAML = "*"
+types-protobuf = "*"
+types-requests = "*"
+types-toml = "*"
+types-jsonschema = "*"
+yamllint = "*"
+ipykernel = "*"
+mdformat = "*"
+gitlint = "*"
+
+[tool.poetry.group.dev.dependencies.black]
+version = "*"
+extras = [ "jupyter",]
+
+[tool.poetry.group.dev.dependencies.betterproto]
+version = "*"
+extras = [ "compiler",]
