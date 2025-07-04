@@ -1,78 +1,19 @@
 [build-system]
-requires = [ "poetry-core>=1.0.0",]
+requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "app"
 version = "1.0.0"
 description = "Escape Python Template Project"
-authors = [ "Escape Technologies SAS <ping@escape.tech>",]
-maintainers = [ "Swan <swan@escape.tech>", "Antoine Carossio <antoine@escape.tech>",]
+authors = ["Escape Technologies SAS <ping@escape.tech>"]
+maintainers = ["Antoine Carossio <antoine@escape.tech>"]
 license = "MIT"
 readme = "README.md"
 homepage = "https://escape.tech/"
 repository = "https://github.com/Escape-Technologies/python-project-template"
 [[tool.poetry.packages]]
 include = "app"
-
-[tool.black]
-line-length = 120
-skip-string-normalization = true
-
-[tool.ruff]
-unfixable = [ "F841",]
-select = [ "F", "E", "W", "C90", "I", "YTT", "S", "B", "COM", "C4", "ISC", "ICN", "INP", "PIE", "T20", "PYI", "PT", "Q", "RSE", "RET", "TID", "ARG", "PGH", "PL", "PLC", "PLE", "PLR", "PLW", "NPY", "RUF", "TD002", "TD004", "TD005", "TD007",]
-exclude = [ ".venv", "poetry.lock", "__pycache__", "pyproject.toml",]
-ignore = [ "E999", "UP015", "S311",]
-line-length = 160
-target-version = "py311"
-ignore-init-module-imports = true
-task-tags = [ "TODO",]
-
-[tool.mypy]
-python_version = "3.12"
-disallow_untyped_defs = true
-disallow_untyped_calls = true
-disallow_incomplete_defs = true
-disallow_untyped_decorators = true
-no_implicit_optional = false
-strict_equality = true
-show_error_codes = true
-warn_unreachable = true
-warn_redundant_casts = true
-warn_unused_ignores = true
-warn_unused_configs = true
-namespace_packages = true
-pretty = true
-files = "app, tests"
-exclude = [ ".venv", "setup.py", ".git", ".tox", "dist", "build", "docs", "node_modules", "__pycache__",]
-[[tool.mypy.overrides]]
-module = "opentelemetry.*"
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "networkx.*"
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "boto3.*"
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "botocore.*"
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "confluent_kafka.*"
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "aenum.*"
-ignore_missing_imports = true
-
-[[tool.mypy.overrides]]
-module = "pydash.*"
-ignore_missing_imports = true
 
 [tool.poetry.scripts]
 app-cli = "app:main"
@@ -81,43 +22,8 @@ app-cli = "app:main"
 python = ">=3.10,<=3.14"
 pydantic = "*"
 
-[tool.coverage.run]
-parallel = true
-omit = [ "_test.py",]
-
-[tool.pytest.ini_options]
-addopts = []
-filterwarnings = [ "ignore:Module already imported.*:pytest.PytestAssertRewriteWarning", "ignore::DeprecationWarning",]
-
-[tool.ruff.per-file-ignores]
-"__init__.py" = [ "F401", "F403",]
-"*_test.py" = [ "S101",]
-"*/test/*" = [ "INP001",]
-"*/scripts/*" = [ "INP001",]
-"*test_*.py" = [ "S101",]
-
-[tool.ruff.pydocstyle]
-convention = "google"
-
-[tool.ruff.flake8-quotes]
-docstring-quotes = "double"
-inline-quotes = "single"
-
-[tool.ruff.pylint]
-max-branches = 15
-max-args = 10
-
-[tool.ruff.pycodestyle]
-max-doc-length = 160
-ignore-overlong-task-comments = true
-
-[tool.ruff.mccabe]
-max-complexity = 15
-
 [tool.poetry.group.dev.dependencies]
-flake8 = "*"
 mypy = "*"
-pydot = "*"
 ruff = "*"
 toml = "*"
 pytest = "*"
@@ -136,10 +42,102 @@ ipykernel = "*"
 mdformat = "*"
 gitlint = "*"
 
-[tool.poetry.group.dev.dependencies.black]
-version = "*"
-extras = [ "jupyter",]
 
-[tool.poetry.group.dev.dependencies.betterproto]
-version = "*"
-extras = [ "compiler",]
+########################################################
+####################### Ruff ###########################
+########################################################
+
+[tool.ruff]
+exclude = [".venv", "poetry.lock", "__pycache__", "pyproject.toml"]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+unfixable = ["F841"]
+ignore = ["UP015", "S311", "PYI041"]
+task-tags = ["TODO"]
+select = ["ALL"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.format]
+quote-style = "preserve"
+
+[tool.ruff.lint.flake8-quotes]
+docstring-quotes = "double"
+inline-quotes = "single"
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "F401", # Module imported but unused
+    "F403", # 'from module import *' used; unable to detect undefined names
+]
+"*/test/*" = [
+    "INP001",
+] # As part of an implicit namespace package, missing __init__ file
+"*/scripts/*" = [
+    "INP001",
+] # As part of an implicit namespace package, missing __init__ file
+"*_test.py" = ["S101"] # Do not use assert statements
+"*test_*.py" = ["S101"]
+
+[tool.ruff.lint.pylint]
+max-args = 4
+max-branches = 5
+max-statements = 5
+
+[tool.ruff.lint.pycodestyle]
+max-doc-length = 160
+ignore-overlong-task-comments = true
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+########################################################
+####################### MyPy ###########################
+########################################################
+
+[tool.mypy]
+python_version = "3.12"
+disallow_untyped_defs = true
+disallow_untyped_calls = true
+disallow_incomplete_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = false
+strict_equality = true
+show_error_codes = true
+warn_unreachable = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_unused_configs = true
+namespace_packages = true
+pretty = true
+files = "app, tests"
+exclude = [
+    ".venv",
+    "setup.py",
+    ".git",
+    ".tox",
+    "dist",
+    "build",
+    "docs",
+    "node_modules",
+    "__pycache__",
+]
+
+
+########################################################
+####################### Pytest #########################
+########################################################
+
+[tool.coverage.run]
+parallel = true
+omit = ["_test.py"]
+
+[tool.pytest.ini_options]
+addopts = []
+filterwarnings = [
+    "ignore:Module already imported.*:pytest.PytestAssertRewriteWarning",
+    "ignore::DeprecationWarning",
+]

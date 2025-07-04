@@ -1,0 +1,5 @@
+{
+  "name": "python: disallow TypedDict",
+  "command": "git grep -q --untracked -I -e 'TypedDict' -- '*.py' && { echo '❌ Lint failed: TypedDict is not allowed. Use pydantic.BaseModel instead.'; exit 1; } || true",
+  "onlyOn": "**/*.py"
+}

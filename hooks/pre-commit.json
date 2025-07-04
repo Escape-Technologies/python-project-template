@@ -1,22 +1,31 @@
 {
   "steps": [
     {
-      "from": "py-black"
-    },
-    {
       "from": "py-mypy"
     },
     {
       "from": "py-pytest"
     },
     {
-      "from": "py-ruff"
+      "from": "py-ruff-lint"
+    },
+    {
+      "from": "py-ruff-format"
     },
     {
       "from": "py-yamllint"
     },
     {
       "from": "py-mdformat"
+    },
+    {
+      "from": "py-typeddict"
+    },
+    {
+      "from": "py-dataclass"
+    },
+    {
+      "from": "py-literal"
     }
   ]
 }
