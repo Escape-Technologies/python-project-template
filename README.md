@@ -32,6 +32,5 @@ In order to use the workflows, you need to have the following environment variab
 ### Bump all dependencies
 
 ```python
-poetry self add poetry-plugin-sembump
-poetry bump -D
+poetry update
 ```
