@@ -1,5 +1,0 @@
-{
-  "name": "python: disallow @dataclass",
-  "command": "git grep -q --untracked -I -e '@dataclass' -- '*.py' && { echo '❌ Lint failed: @dataclass is not allowed. Use pydantic.BaseModel instead.'; exit 1; } || true",
-  "onlyOn": "**/*.py"
-}

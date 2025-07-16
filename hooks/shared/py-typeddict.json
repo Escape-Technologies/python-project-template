@@ -1,5 +1,5 @@
 {
-  "name": "python: disallow TypedDict",
-  "command": "git grep -q --untracked -I -e 'TypedDict' -- '*.py' && { echo '❌ Lint failed: TypedDict is not allowed. Use pydantic.BaseModel instead.'; exit 1; } || true",
+  "name": "python: disallow TypedDict and NamedTuple",
+  "command": "git grep -q --untracked -I -e 'TypedDict\\|NamedTuple' -- '*.py' && { echo '❌ Lint failed: TypedDict and NamedTuple are not allowed. Use @dataclass or pydantic.BaseModel instead.'; exit 1; } || true",
   "onlyOn": "**/*.py"
 }

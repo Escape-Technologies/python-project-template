@@ -1,5 +1,0 @@
-{
-  "name": "python: disallow TypedDict",
-  "command": "git grep -q --untracked -I -e 'Literal' -- '*.py' && { echo '❌ Lint failed: Literal is not allowed. Use enum.StrEnum instead.'; exit 1; } || true",
-  "onlyOn": "**/*.py"
-}

@@ -20,12 +20,6 @@
     },
     {
       "from": "py-typeddict"
-    },
-    {
-      "from": "py-dataclass"
-    },
-    {
-      "from": "py-literal"
     }
   ]
 }

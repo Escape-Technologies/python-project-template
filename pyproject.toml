@@ -19,7 +19,7 @@ include = "app"
 app-cli = "app:main"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<=3.14"
+python = ">=3.13,<3.14"
 pydantic = "*"
 
 [tool.poetry.group.dev.dependencies]
@@ -32,13 +32,10 @@ pytest-mock = "*"
 pytest-xdist = "*"
 pytest-asyncio = "*"
 pytest-timeout = "*"
-types-PyYAML = "*"
-types-protobuf = "*"
 types-requests = "*"
 types-toml = "*"
 types-jsonschema = "*"
 yamllint = "*"
-ipykernel = "*"
 mdformat = "*"
 gitlint = "*"
 
@@ -50,13 +47,113 @@ gitlint = "*"
 [tool.ruff]
 exclude = [".venv", "poetry.lock", "__pycache__", "pyproject.toml"]
 line-length = 120
-target-version = "py312"
+target-version = "py313"
 
 [tool.ruff.lint]
 unfixable = ["F841"]
-ignore = ["UP015", "S311", "PYI041"]
+ignore = [
+    "UP015",
+    "S311",
+    "S101",
+    "E501",
+    "PYI041",
+    "SIM103",
+    "SIM108",
+    "SIM110",
+    "TD003",
+    "COM812",
+    "ISC001",
+    "ASYNC109",
+    "G003",
+    "G004",
+    "PERF401",
+    "PERF403",
+    "PLR2004",
+    "PLR0911",
+    "PLR0912",
+    "PLR0913",
+    "PLR0914",
+    "PLR0915",
+    "PLR0916",
+    "PLR0917",
+    "TRY002",
+    "TRY003",
+    "TRY300",
+    "TRY301",
+    "N802",
+    "N803",
+    "N805",
+    "N806",
+    "N815",
+    "N812",
+]
 task-tags = ["TODO"]
-select = ["ALL"]
+select = [
+    ## Here are all available rules
+    # https://docs.astral.sh/ruff/rules/
+    # Please, comment or uncomment lines but do not remove them
+
+    "AIR", # Airflow                           https://docs.astral.sh/ruff/rules/#airflow-air
+    # "ERA",        # eradicate                         https://docs.astral.sh/ruff/rules/#eradicate-era
+    "FAST", # fastapi                           https://docs.astral.sh/ruff/rules/#fastapi-fast
+    "YTT",  # flake8-2020                       https://docs.astral.sh/ruff/rules/#flake8-2020-ytt
+    # "ANN",        # flake8-annotations                https://docs.astral.sh/ruff/rules/#flake8-annotations-ann
+    "ASYNC", # flake8-async                       https://docs.astral.sh/ruff/rules/#flake8-async-async
+    "S",     # flake8-bandit                     https://docs.astral.sh/ruff/rules/#flake8-bandit-s
+    # "BLE",        # flake8-blind-except               https://docs.astral.sh/ruff/rules/#flake8-blind-except-ble
+    # "FBT",        # flake8-boolean-trap               https://docs.astral.sh/ruff/rules/#flake8-boolean-trap-fbt
+    "B",   # flake8-bugbear                    https://docs.astral.sh/ruff/rules/#flake8-bugbear-b
+    "A",   # flake8-builtins                   https://docs.astral.sh/ruff/rules/#flake8-builtins-a
+    "COM", # flake8-commas                     https://docs.astral.sh/ruff/rules/#flake8-commas-com
+    "C4",  # flake8-comprehensions             https://docs.astral.sh/ruff/rules/#flake8-comprehensions-c4
+    # "CPY",        # flake8-copyright                  https://docs.astral.sh/ruff/rules/#flake8-copyright-cpy
+    "DTZ", # flake8-datetimez                  https://docs.astral.sh/ruff/rules/#flake8-datetimez-dtz
+    "T10", # flake8-debugger                   https://docs.astral.sh/ruff/rules/#flake8-debugger-t10
+    # "DJ",         # flake8-django                     https://docs.astral.sh/ruff/rules/#flake8-django-dj
+    # "EM",         # flake8-errmsg                     https://docs.astral.sh/ruff/rules/#flake8-errmsg-em
+    "EXE", # flake8-executable                 https://docs.astral.sh/ruff/rules/#flake8-executable-exe
+    # "FIX",        # flake8-fixme                     https://docs.astral.sh/ruff/rules/#flake8-fixme-fix
+    "FA",   # flake8-future-annotations         https://docs.astral.sh/ruff/rules/#flake8-future-annotations-fa
+    "INT",  # flake8-gettext-int                https://docs.astral.sh/ruff/rules/#flake8-gettext-int
+    "ISC",  # flake8-implicit-str-concat        https://docs.astral.sh/ruff/rules/#flake8-implicit-str-concat-isc
+    "ICN",  # flake8-import-conventions         https://docs.astral.sh/ruff/rules/#flake8-import-conventions-icn
+    "LOG",  # flake8-logging                    https://docs.astral.sh/ruff/rules/#flake8-logging-log
+    "G",    # flake8-logging-format             https://docs.astral.sh/ruff/rules/#flake8-logging-format-g
+    "INP",  # flake8-no-pep420                  https://docs.astral.sh/ruff/rules/#flake8-no-pep420-inp
+    "PIE",  # flake8-pie                        https://docs.astral.sh/ruff/rules/#flake8-pie-pie
+    "T20",  # flake8-print                      https://docs.astral.sh/ruff/rules/#flake8-print-t20
+    "PYI",  # flake8-pyi                        https://docs.astral.sh/ruff/rules/#flake8-pyi-pyi
+    "PT",   # flake8-pytest-style               https://docs.astral.sh/ruff/rules/#flake8-pytest-style-pt
+    "Q",    # flake8-quotes                     https://docs.astral.sh/ruff/rules/#flake8-quotes-q
+    "RSE",  # flake8-raise                      https://docs.astral.sh/ruff/rules/#flake8-raise-rse
+    "RET",  # flake8-return                     https://docs.astral.sh/ruff/rules/#flake8-return-ret
+    "SLF",  # flake8-self                       https://docs.astral.sh/ruff/rules/#flake8-self-slf
+    "SIM",  # flake8-simplify                   https://docs.astral.sh/ruff/rules/#flake8-simplify-sim
+    "SLOT", # flake8-slots                      https://docs.astral.sh/ruff/rules/#flake8-slots-slot
+    "TID",  # flake8-tidy-imports               https://docs.astral.sh/ruff/rules/#flake8-tidy-imports-tid
+    "TD",   # flake8-todos (TD)                 https://docs.astral.sh/ruff/rules/#flake8-todos-td
+    "TC",   # flake8-type-checking              https://docs.astral.sh/ruff/rules/#flake8-type-checking-tc
+    "ARG",  # flake8-unused-arguments           https://docs.astral.sh/ruff/rules/#flake8-unused-arguments-arg
+    # "PTH",        # flake8-use-pathlib                https://docs.astral.sh/ruff/rules/#flake8-use-pathlib-pth
+    # "FLY",        # flynt                              https://docs.astral.sh/ruff/rules/#flynt-fly
+    "I",   # isort                             https://docs.astral.sh/ruff/rules/#isort-i
+    "C90", # mccabe                            https://docs.astral.sh/ruff/rules/#mccabe-c90
+    # "NPY",        # numpy                              https://docs.astral.sh/ruff/rules/#numpy-specific-rules-npy
+    # "PD",         # pandas-vet                        https://docs.astral.sh/ruff/rules/#pandas-vet-pd
+    "N",    # pep8-naming                       https://docs.astral.sh/ruff/rules/#pep8-naming-n
+    "PERF", # perflint                          https://docs.astral.sh/ruff/rules/#perflint-perf
+    "E",    # pycodestyle - Error               https://docs.astral.sh/ruff/rules/#error-e
+    "W",    # pycodestyle - Warning             https://docs.astral.sh/ruff/rules/#warning-w
+    # "DOC",        # pydoclint-doc                      https://docs.astral.sh/ruff/rules/#pydoclint-doc
+    # "D",          # pydocstyle                      https://docs.astral.sh/ruff/rules/#pydocstyle-d
+    "F",    # Pyflakes                          https://docs.astral.sh/ruff/rules/#pyflakes-f
+    "PGH",  # pygrep-hooks                      https://docs.astral.sh/ruff/rules/#pygrep-hooks-pgh
+    "PL",   # Pylint                            https://docs.astral.sh/ruff/rules/#pylint-pl
+    "UP",   # pyupgrade                         https://docs.astral.sh/ruff/rules/#pyupgrade-up
+    "FURB", # flake8-refurb                     https://docs.astral.sh/ruff/rules/#refurb-furb
+    "RUF",  # Ruff-specific rules               https://docs.astral.sh/ruff/rules/#ruff-specific-rules-ruf
+    "TRY",  # tryceratops                      https://docs.astral.sh/ruff/rules/#tryceratops-try
+]
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
@@ -74,13 +171,20 @@ inline-quotes = "single"
     "F403", # 'from module import *' used; unable to detect undefined names
 ]
 "*/test/*" = [
+    "INP001", # is part of an implicit namespace package, missing __init__.py
+    "SLF001", # accessing to a private attribute in a test is ok
+]
+"*/test_*.py" = [
     "INP001",
-] # As part of an implicit namespace package, missing __init__ file
+    "SLF001", # accessing to a private attribute in a test is ok
+]
+"*/*_test.py" = [
+    "INP001",
+    "SLF001", # accessing to a private attribute in a test is ok
+]
 "*/scripts/*" = [
-    "INP001",
-] # As part of an implicit namespace package, missing __init__ file
-"*_test.py" = ["S101"] # Do not use assert statements
-"*test_*.py" = ["S101"]
+    "INP001", # is part of an implicit namespace package, missing __init__.py
+]
 
 [tool.ruff.lint.pylint]
 max-args = 4
@@ -99,7 +203,7 @@ max-complexity = 10
 ########################################################
 
 [tool.mypy]
-python_version = "3.12"
+python_version = "3.13"
 disallow_untyped_defs = true
 disallow_untyped_calls = true
 disallow_incomplete_defs = true
