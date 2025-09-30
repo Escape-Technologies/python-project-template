@@ -1,5 +1,5 @@
 {
-  "python.languageServer": "Pylance",
+  "python.languageServer": "None",
   "editor.formatOnSave": true,
   "mypy.runUsingActiveInterpreter": true,
   "python.analysis.autoImportCompletions": true,

@@ -1,19 +1,19 @@
-.PHONY: all python-poetry python-dependencies git-hooks-init
+.PHONY: all python-uv python-dependencies git-hooks-init
 
-all: python-poetry python-dependencies git-hooks-init
+all: python-uv python-dependencies git-hooks-init
 	echo "---- Your working directory is all set :) ----"
 
-python-poetry:
-	@echo "---- Installing Python Poetry ----"
+python-uv:
+	@echo "---- Installing Python UV ----"
 	pip install -U pip
-	pip install -U poetry
-	poetry config virtualenvs.in-project true
-	poetry config virtualenvs.path ".venv"
+	pip install -U uv
+	uv venv
+	uv config virtualenvs.in-project true
+	uv config virtualenvs.path ".venv"
 
-python-dependencies: python-poetry
+python-dependencies: python-uv
 	@echo "---- Installing Python dependencies ----"
-	poetry install
-	poetry self add poetry-plugin-sembump
+	uv sync
 
 git-hooks-init:
 	@echo "---- Git hooks init (using Gookme) ----"

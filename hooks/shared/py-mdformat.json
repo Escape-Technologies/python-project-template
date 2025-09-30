@@ -1,5 +1,5 @@
 {
   "name": "python: mdformat",
-  "command": "poetry run mdformat .",
-  "onlyOn": "**/*.md"
+  "command": "uv run mdformat docs",
+  "onlyOn": "docs/**/*.md"
 }

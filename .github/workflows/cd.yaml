@@ -23,14 +23,14 @@ jobs:
           python-version: "3.10"
       - name: Install dependencies
         run: |
-          pip install poetry
-      - name: Setup poetry
+          pip install uv
+      - name: Setup uv
         run: |
-          poetry config virtualenvs.in-project true
-          poetry install
+          uv venv
+          uv sync
       - name: Build package
         run: |
-          poetry build
+          uv build
       - name: Upload package
         uses: pypa/gh-action-pypi-publish@release/v1
         with:

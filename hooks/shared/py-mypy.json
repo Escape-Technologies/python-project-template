@@ -1,5 +1,5 @@
 {
   "name": "python: mypy",
-  "command": "poetry run mypy",
+  "command": "uv run mypy .",
   "onlyOn": "**/*.py"
 }

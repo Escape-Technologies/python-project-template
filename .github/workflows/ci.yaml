@@ -24,27 +24,26 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          pip install -U poetry
-      - name: Setup poetry
+          pip install -U uv
+      - name: Setup uv
         run: |
-          poetry config virtualenvs.in-project true
-          poetry install
+          uv venv
+          uv sync
       - name: Run lint
         if: always()
         run: |
-          poetry run yamllint --version
-          poetry run yamllint . -s
-          poetry run mdformat --version
-          poetry run mdformat .
-          poetry run black --version
-          poetry run black $MODULE_NAME tests
-          poetry run ruff --version
-          poetry run ruff check $MODULE_NAME tests
-          poetry run mypy --version
-          poetry run mypy $MODULE_NAME tests
+          uv run yamllint --version
+          uv run yamllint . -s
+          uv run mdformat --version
+          uv run mdformat .
+          uv run ruff --version
+          uv run ruff check $MODULE_NAME tests --fix
+          uv run ruff format $MODULE_NAME tests
+          uv run mypy --version
+          uv run mypy $MODULE_NAME tests
       - name: Run tests
         run: |
-          poetry run pytest --cov=$MODULE_NAME --cov-report=xml --cov-fail-under=$MIN_TEST_COV tests/unit
+          uv run pytest --cov=$MODULE_NAME --cov-report=xml --cov-fail-under=$MIN_TEST_COV tests/unit
       # - name: Upload coverage to Codecov
       #   uses: codecov/codecov-action@v2
       #   with:

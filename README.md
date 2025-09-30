@@ -32,5 +32,5 @@ In order to use the workflows, you need to have the following environment variab
 ### Bump all dependencies
 
 ```python
-poetry update
+uv sync
 ```

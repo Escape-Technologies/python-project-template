@@ -1,24 +1,23 @@
 {
   "steps": [
     {
-      "from": "py-mypy"
-    },
-    {
-      "from": "py-pytest"
-    },
-    {
+      "name": "Python: Ruff Lint",
       "from": "py-ruff-lint"
     },
     {
+      "name": "Python: Ruff Format",
       "from": "py-ruff-format"
     },
     {
+      "name": "Python: Yamllint Remediations",
       "from": "py-yamllint"
     },
     {
+      "name": "Python: MDFormat Docs",
       "from": "py-mdformat"
     },
     {
+      "name": "Python: disallow TypedDict",
       "from": "py-typeddict"
     }
   ]

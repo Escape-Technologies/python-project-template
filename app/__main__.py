@@ -2,7 +2,7 @@
 
 """Entry point of the CLI version.
 
-Called from poetry.
+Called from uv.
 """
 
 from .main import main

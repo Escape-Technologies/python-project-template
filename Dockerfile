@@ -1,19 +1,19 @@
 # Build stage
 FROM python:3.11-slim AS builder
 
-# Install poetry
-RUN pip install poetry
+# Install uv
+RUN pip install uv
 
 WORKDIR /app
 
 # Copy the entire project
 COPY . .
 
-# Configure poetry to create the virtualenv inside the project directory
-RUN poetry config virtualenvs.in-project true
+# Configure uv to create the virtualenv inside the project directory
+RUN uv venv
 
 # Install dependencies without installing the project itself
-RUN poetry install --no-root --no-interaction --no-ansi
+RUN uv sync
 
 # Runtime stage
 FROM python:3.11-slim

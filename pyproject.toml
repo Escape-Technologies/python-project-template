@@ -1,51 +1,54 @@
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
 
-[tool.poetry]
+[project]
 name = "app"
 version = "1.0.0"
 description = "Escape Python Template Project"
-authors = ["Escape Technologies SAS <ping@escape.tech>"]
-maintainers = ["Antoine Carossio <antoine@escape.tech>"]
-license = "MIT"
+authors = [{ name = "Escape Technologies SAS", email = "ping@escape.tech" }]
+requires-python = ">=3.13,<3.14"
 readme = "README.md"
-homepage = "https://escape.tech/"
-repository = "https://github.com/Escape-Technologies/python-project-template"
-[[tool.poetry.packages]]
-include = "app"
+license = "MIT"
+maintainers = [{ name = "Antoine Carossio", email = "antoine@escape.tech" }]
+dependencies = ["pydantic"]
 
-[tool.poetry.scripts]
+[project.urls]
+Homepage = "https://escape.tech/"
+Repository = "https://github.com/Escape-Technologies/python-project-template"
+
+[project.scripts]
 app-cli = "app:main"
 
-[tool.poetry.dependencies]
-python = ">=3.13,<3.14"
-pydantic = "*"
+[dependency-groups]
+dev = [
+    "mypy",
+    "ruff",
+    "toml",
+    "pytest",
+    "pytest-cov",
+    "pytest-mock",
+    "pytest-benchmark",
+    "pytest-xdist",
+    "pytest-asyncio",
+    "pytest-timeout",
+    "pytest-dotenv",
+    "types-requests",
+    "types-toml",
+    "types-jsonschema",
+    "yamllint",
+    "mdformat",
+    "gitlint",
+]
 
-[tool.poetry.group.dev.dependencies]
-mypy = "*"
-ruff = "*"
-toml = "*"
-pytest = "*"
-pytest-cov = "*"
-pytest-mock = "*"
-pytest-xdist = "*"
-pytest-asyncio = "*"
-pytest-timeout = "*"
-types-requests = "*"
-types-toml = "*"
-types-jsonschema = "*"
-yamllint = "*"
-mdformat = "*"
-gitlint = "*"
+[tool.hatch.build.targets.sdist]
+include = ["app"]
 
-
-########################################################
-####################### Ruff ###########################
-########################################################
+[tool.hatch.build.targets.wheel]
+include = ["app"]
 
 [tool.ruff]
-exclude = [".venv", "poetry.lock", "__pycache__", "pyproject.toml"]
+exclude = [".venv", "uv.lock", "__pycache__", "pyproject.toml"]
 line-length = 120
 target-version = "py313"
 
@@ -173,23 +176,26 @@ inline-quotes = "single"
 "*/test/*" = [
     "INP001", # is part of an implicit namespace package, missing __init__.py
     "SLF001", # accessing to a private attribute in a test is ok
+    "S106",   # Harcoded password
 ]
 "*/test_*.py" = [
     "INP001",
-    "SLF001", # accessing to a private attribute in a test is ok
+    "SLF001", # accessing to a private attribute in a test is ok,
+    "S106",   # Harcoded password
 ]
 "*/*_test.py" = [
     "INP001",
     "SLF001", # accessing to a private attribute in a test is ok
+    "S106",   # Harcoded password
 ]
 "*/scripts/*" = [
     "INP001", # is part of an implicit namespace package, missing __init__.py
 ]
+"*/migrations/*" = [
+    "INP001", # Alembic is a set of scripts
+    "S608",   # SQL migrations
+]
 
-[tool.ruff.lint.pylint]
-max-args = 4
-max-branches = 5
-max-statements = 5
 
 [tool.ruff.lint.pycodestyle]
 max-doc-length = 160
@@ -198,9 +204,11 @@ ignore-overlong-task-comments = true
 [tool.ruff.lint.mccabe]
 max-complexity = 10
 
-########################################################
-####################### MyPy ###########################
-########################################################
+[tool.ruff.lint.pylint]
+max-args = 4
+max-branches = 5
+max-statements = 5
+
 
 [tool.mypy]
 python_version = "3.13"
@@ -229,11 +237,6 @@ exclude = [
     "node_modules",
     "__pycache__",
 ]
-
-
-########################################################
-####################### Pytest #########################
-########################################################
 
 [tool.coverage.run]
 parallel = true

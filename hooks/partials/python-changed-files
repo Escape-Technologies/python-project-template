@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+if [ -z "$@" ];
+then
+    echo "$(git --no-pager diff --cached --name-only --relative --diff-filter=AMCRTUXB | perl -nle'print if m{.py$}')";
+else
+    for f in $(git --no-pager diff --cached --name-only --relative --diff-filter=AMCRTUXB | perl -nle'print if m{.py$}');
+    do
+        if test -f "$f";
+        then
+            $@ $f
+        fi
+    done
+fi
